@@ -1,0 +1,76 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="calculate()">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Converter</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3>Player 1</h3>
+          </div>
+          <div class="card-body">
+            <label for="playerOne">Points</label>
+            <input
+              type="number"
+              class="form-control"
+              id="playerOne"
+              formControlName="playerOne"
+              [ngClass]="{
+                'is-invaild': submitted && f['playerOne'].errors
+              }"
+            />
+            <span
+              class="invaild-text"
+              *ngIf="f['playerOne'].errors && submitted"
+            >
+              Please enter value, with 0 being the lowest and 4 being the largest
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3>Player 2</h3>
+          </div>
+          <div class="card-body">
+            <label for="playerTwo">Points</label>
+            <input
+              type="number"
+              class="form-control"
+              id="playerTwo"
+              formControlName="playerTwo"
+              [ngClass]="{
+                'is-invaild': submitted && f['playerTwo'].errors
+              }"
+            />
+            <span
+              class="invaild-text"
+              *ngIf="f['playerTwo'].errors && submitted"
+            >
+            Please enter value, with 0 being the lowest and 4 being the largest
+          </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h3>Tennis Score</h3>
+          </div>
+          <div class="card-body">
+            <div class="col-md-12">
+              <span>{{ calulatedScore }}</span>
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
